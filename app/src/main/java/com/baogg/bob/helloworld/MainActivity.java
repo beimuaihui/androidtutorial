@@ -1,10 +1,10 @@
 package com.baogg.bob.helloworld;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     Button btnLogin,btnCancel ;
     int counter = 3;
@@ -38,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
                 //如果用户名密码等于baogg,则成功
                 if (txtUser.getText().toString().equals("baogg") && txtPassword.getText().toString().equals("baogg")) {
-                    Toast.makeText(MainActivity.this, "You clicked OK", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "You clicked OK", Toast.LENGTH_LONG).show();
                 } else {
                     //Toast.makeText(MainActivity.this, txtUser.getText(), Toast.LENGTH_LONG).show();
                     //Toast.makeText(MainActivity.this, txtPassword.getText(), Toast.LENGTH_LONG).show();
-                    Toast.makeText(MainActivity.this, "You clicked Fail", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "You clicked Fail", Toast.LENGTH_LONG).show();
+
 
                     txtUser.setVisibility(View.VISIBLE);
                     txtUser.setBackgroundColor(Color.RED);
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                Toast.makeText(MainActivity.this, "You clicked yes button", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "You clicked yes button", Toast.LENGTH_LONG).show();
             }
         });
 
